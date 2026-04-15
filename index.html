@@ -132,7 +132,7 @@ quantity:1
 }]
 });
 
-alert(product.name+" added to cart");
+alert(product.name + " added to cart");
 }
 
 function renderProducts(){
@@ -146,10 +146,11 @@ card.onclick=()=>trackProductView(product);
 card.innerHTML=`
 <h3>${product.name}</h3>
 <p>₹${product.price}</p>
-<button onclick="addToCart(event, ${JSON.stringify(product).replace(/"/g,'&quot;')})">
-Add to Cart
-</button>
+<button class="add-btn">Add to Cart</button>
 `;
+
+const btn = card.querySelector(".add-btn");
+btn.onclick = (e) => addToCart(e, product);
 
 grid.appendChild(card);
 });
